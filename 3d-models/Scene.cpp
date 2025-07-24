@@ -182,12 +182,12 @@ bool InitGeometry()
     // IMPORTANT NOTE: Will only keep the first object from the mesh - multipart objects will have parts missing - see later lab for more robust loader
     try 
     {
-        gTeapotMesh = new Mesh("Teapot.x");
-        gSphereMesh = new Mesh("Sphere.x");
-        gCubeMesh   = new Mesh("Cube.x");
-        gFloorMesh  = new Mesh("Floor.x");
-        gLightMesh  = new Mesh("Light.x");
-        gTrollMesh = new Mesh("troll.x");
+        gTeapotMesh = new Mesh("Models/Teapot.x");
+        gSphereMesh = new Mesh("Models/Sphere.x");
+        gCubeMesh   = new Mesh("Models/Cube.x");
+        gFloorMesh  = new Mesh("Models/Floor.x");
+        gLightMesh  = new Mesh("Models/Light.x");
+        gTrollMesh  = new Mesh("Models/troll.x");
     }
     catch (std::runtime_error e)  // Constructors cannot return error messages so use exceptions to catch mesh errors (fairly standard approach this)
     {
@@ -222,13 +222,13 @@ bool InitGeometry()
     // The LoadTexture function requires you to pass a ID3D11Resource* (e.g. &gCubeDiffuseMap), which manages the GPU memory for the
     // texture and also a ID3D11ShaderResourceView* (e.g. &gCubeDiffuseMapSRV), which allows us to use the texture in shaders
     // The function will fill in these pointers with usable data. The variables used here are globals found near the top of the file.
-    if (!LoadTexture("PatternDiffuseSpecular.dds", &gTeapotDiffuseSpecularMap, &gTeapotDiffuseSpecularMapSRV) ||
-        !LoadTexture("PatternDiffuseSpecular.dds", &gSphereDiffuseSpecularMap, &gSphereDiffuseSpecularMapSRV) ||
-        !LoadTexture("StoneDiffuseSpecular.dds",   &gCubeDiffuseSpecularMap,   &gCubeDiffuseSpecularMapSRV) ||
-        !LoadTexture("WoodDiffuseSpecular.dds",    &gFloorDiffuseSpecularMap,  &gFloorDiffuseSpecularMapSRV) ||
-        !LoadTexture("Flare.jpg",                  &gLightDiffuseMap,          &gLightDiffuseMapSRV) ||
-        !LoadTexture("Green.png",                  &gTrollDiffuseMap,          &gTrollDiffuseMapSRV) ||
-        !LoadTexture("CellGradient.png",           &gCellMap,                  &gCellMapSRV))
+    if (!LoadTexture("Textures/PatternDiffuseSpecular.dds", &gTeapotDiffuseSpecularMap, &gTeapotDiffuseSpecularMapSRV) ||
+        !LoadTexture("Textures/PatternDiffuseSpecular.dds", &gSphereDiffuseSpecularMap, &gSphereDiffuseSpecularMapSRV) ||
+        !LoadTexture("Textures/StoneDiffuseSpecular.dds",   &gCubeDiffuseSpecularMap,   &gCubeDiffuseSpecularMapSRV) ||
+        !LoadTexture("Textures/WoodDiffuseSpecular.dds",    &gFloorDiffuseSpecularMap,  &gFloorDiffuseSpecularMapSRV) ||
+        !LoadTexture("Textures/Flare.jpg",                  &gLightDiffuseMap,          &gLightDiffuseMapSRV) ||
+        !LoadTexture("Textures/Green.png",                  &gTrollDiffuseMap,          &gTrollDiffuseMapSRV) ||
+        !LoadTexture("Textures/CellGradient.png",           &gCellMap,                  &gCellMapSRV))
     {
         gLastError = "Error loading textures";
         return false;
