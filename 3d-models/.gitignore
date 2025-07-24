@@ -369,3 +369,4 @@ FodyWeavers.xsd
 *.pdb
 *.dll
 *.cso
+*.exe
